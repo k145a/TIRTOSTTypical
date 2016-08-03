@@ -1,0 +1,1429 @@
+******************************************************************************
+                  TI ARM Linker PC v5.2.4                      
+******************************************************************************
+>> Linked Sun Aug 23 10:28:37 2015
+
+OUTPUT FILE NAME:   <PIMDAQ_TI_RTOS.out>
+ENTRY POINT SYMBOL: "_c_int00"  address: 80008c24
+
+
+MEMORY CONFIGURATION
+
+         name            origin    length      used     unused   attr    fill
+----------------------  --------  ---------  --------  --------  ----  --------
+  SRAM_LO               402f0000   00000400  00000000  00000400  RW X
+  SRAM_HI               402f0400   0000fc00  00000000  0000fc00  RW X
+  OCMC_SRAM             40300000   00010000  00000000  00010000  RW X
+  DDR2                  80000000   10000000  0001182d  0ffee7d3  RWIX
+
+
+SEGMENT ALLOCATION MAP
+
+run origin  load origin   length   init length attrs members
+----------  ----------- ---------- ----------- ----- -------
+80000000    80000000    00009164   00009164    r-x
+  80000000    80000000    00009164   00009164    r-x .text
+80009168    80009168    00007070   00000000    rw-
+  80009168    80009168    00004ca8   00000000    rw- .data
+  8000de10    8000de10    00002000   00000000    rw- .stack
+  8000fe10    8000fe10    000003c8   00000000    rw- .bss
+800101d8    800101d8    00000101   00000101    r--
+  800101d8    800101d8    00000101   00000101    r-- .const
+800102e0    800102e0    00000008   00000000    rw-
+  800102e0    800102e0    00000008   00000000    rw- .sysmem
+800102e8    800102e8    00001550   00001550    r--
+  800102e8    800102e8    00001550   00001550    r-- .cinit
+
+
+SECTION ALLOCATION MAP
+
+ output                                  attributes/
+section   page    origin      length       input sections
+--------  ----  ----------  ----------   ----------------
+.stack     0    8000de10    00002000     UNINITIALIZED
+                  8000de10    00002000     --HOLE--
+
+.bss       0    8000fe10    000003c8     UNINITIALIZED
+                  8000fe10    00000200     interrupt.obj (.bss:fnRAMVectors)
+                  80010010    00000120     rtsv7A8_A_le_n_v3_eabi.lib : trgmsg.obj (.bss:__CIOBUF_)
+                  80010130    000000a0                                : defs.obj (.bss:__TI_tmpnams)
+                  800101d0    00000008     (.common:parmbuf)
+
+.neardata 
+*          0    800101d8    00000000     UNINITIALIZED
+
+.rodata    0    800101d8    00000000     UNINITIALIZED
+
+.sysmem    0    800102e0    00000008     UNINITIALIZED
+                  800102e0    00000008     rtsv7A8_A_le_n_v3_eabi.lib : memory.obj (.sysmem)
+
+.cinit     0    800102e8    00001550     
+                  800102e8    0000152b     (.cinit..data.load) [load image, compression = rle]
+                  80011813    00000001     --HOLE-- [fill = 0]
+                  80011814    0000000c     (__TI_handler_table)
+                  80011820    00000008     (.cinit..bss.load) [load image, compression = zero_init]
+                  80011828    00000010     (__TI_cinit_table)
+
+.init_array 
+*          0    80000000    00000000     UNINITIALIZED
+
+xdc.meta   0    80000000    00000000     COPY SECTION
+
+.text      0    80000000    00009164     
+                  80000000    00001d10     uart_irda_cir.obj (.text)
+                  80001d10    000018d0     rtsv7A8_A_le_n_v3_eabi.lib : _printfi.obj (.text)
+                  800035e0    00000e0c     clock.obj (.text)
+                  800043ec    00000b44     gpio_v2.obj (.text)
+                  80004f30    000009d0     main.obj (.text)
+                  80005900    0000063c     rtsv7A8_A_le_n_v3_eabi.lib : memory.obj (.text)
+                  80005f3c    00000548                                : lowlev.obj (.text)
+                  80006484    000004cc                                : trgdrv.obj (.text)
+                  80006950    000003e4     interrupt.obj (.text)
+                  80006d34    000002d4     rtsv7A8_A_le_n_v3_eabi.lib : fopen.obj (.text)
+                  80007008    000002b8                                : ull_div32.obj (.text)
+                  800072c0    00000270     uart.obj (.text)
+                  80007530    0000020c     gpio.obj (.text)
+                  8000773c    000001c8     rtsv7A8_A_le_n_v3_eabi.lib : fputs.obj (.text)
+                  80007904    000001a8                                : xdscale.obj (.text)
+                  80007aac    00000180                                : memcpy32.obj (.text)
+                  80007c2c    00000160                                : xdnorm.obj (.text)
+                  80007d8c    00000158                                : setvbuf.obj (.text)
+                  80007ee4    00000130                                : fflush.obj (.text)
+                  80008014    00000118                                : _io_perm.obj (.text)
+                  8000812c    00000114                                : i_div32.obj (.text)
+                  80008240    00000100                                : fputc.obj (.text)
+                  80008340    000000fc                                : fclose.obj (.text)
+                  8000843c    000000f0                                : u_div32.obj (.text)
+                  8000852c    000000ec     auto_init.aea8fnv : auto_init.oea8fnv (.text)
+                  80008618    000000b8     rtsv7A8_A_le_n_v3_eabi.lib : xdunscal.obj (.text)
+                  800086d0    000000b0                                : memset32.obj (.text)
+                  80008780    000000a8                                : fseek.obj (.text)
+                  80008828    000000a4                                : printf.obj (.text)
+                  800088cc    000000a4                                : trgmsg.obj (.text)
+                  80008970    000000a0                                : copy_decompress_rle.obj (.text)
+                  80008a10    0000008c     ti.targets.arm.rtsarm.aea8fnv : Startup.oea8fnv (.text:xdc_runtime_Startup_exec__E)
+                  80008a9c    00000084     rtsv7A8_A_le_n_v3_eabi.lib : atoi.obj (.text)
+                  80008b20    00000084                                : cpy_tbl.obj (.text)
+                  80008ba4    00000080                                : ltoa.obj (.text)
+                  80008c24    00000074     boot.aea8fnv : boot.oea8fnv (.text)
+                  80008c98    00000070     rtsv7A8_A_le_n_v3_eabi.lib : ldexp.obj (.text)
+                  80008d08    00000064                                : signal.obj (.text)
+                  80008d6c    00000060     cpu.obj (.text)
+                  80008dcc    00000058     rtsv7A8_A_le_n_v3_eabi.lib : feraiseexcept.obj (.text)
+                  80008e24    0000004c                                : raise.obj (.text)
+                  80008e70    00000048                                : strncpy.obj (.text)
+                  80008eb8    00000048                                : xdclass.obj (.text)
+                  80008f00    00000048     ti.targets.arm.rtsarm.aea8fnv : System.oea8fnv (.text:xdc_runtime_System_processAtExit__E)
+                  80008f48    00000044     rtsv7A8_A_le_n_v3_eabi.lib : xferaise.obj (.text)
+                  80008f8c    00000030                                : frexp.obj (.text)
+                  80008fbc    0000002c                                : memccpy.obj (.text)
+                  80008fe8    0000002c                                : memchr.obj (.text)
+                  80009014    00000028                                : strchr.obj (.text)
+                  8000903c    00000028                                : strcmp.obj (.text)
+                  80009064    00000024                                : _lock.obj (.text)
+                  80009088    00000024     ti.targets.arm.rtsarm.aea8fnv : System.oea8fnv (.text:xdc_runtime_System_exit__E)
+                  800090ac    00000020     rtsv7A8_A_le_n_v3_eabi.lib : args_main.obj (.text)
+                  800090cc    0000001c                                : strlen.obj (.text)
+                  800090e8    00000018                                : strcpy.obj (.text)
+                  80009100    00000018     ti.targets.arm.rtsarm.aea8fnv : Error.oea8fnv (.text:xdc_runtime_Error_init__E)
+                  80009118    00000014     rtsv7A8_A_le_n_v3_eabi.lib : copy_decompress_none.obj (.text:decompress:none)
+                  8000912c    00000010                                : copy_zero_init.obj (.text:decompress:ZI)
+                  8000913c    00000010     ti.targets.arm.rtsarm.aea8fnv : Gate.oea8fnv (.text:xdc_runtime_Gate_enterSystem__E)
+                  8000914c    0000000c     cpu.obj (.text:CPUIntStatus)
+                  80009158    00000008     rtsv7A8_A_le_n_v3_eabi.lib : copy_decompress_rle.obj (.text:decompress:rle24)
+                  80009160    00000004                                : i_div0.obj (.text)
+
+.data      0    80009168    00004ca8     UNINITIALIZED
+                  80009168    00000154     am335x_clock_data.obj (.data:clk24MhzClkDomain)
+                  800092bc    00000154     am335x_clock_data.obj (.data:cpsw125MhzClkDomain)
+                  80009410    00000154     am335x_clock_data.obj (.data:l3sClkDomain)
+                  80009564    00000154     am335x_clock_data.obj (.data:l4WkupAonClkDomain)
+                  800096b8    00000154     am335x_clock_data.obj (.data:l4fwClkDomain)
+                  8000980c    00000154     am335x_clock_data.obj (.data:l4hsClkDomain)
+                  80009960    00000154     am335x_clock_data.obj (.data:l4lsClkDomain)
+                  80009ab4    00000154     am335x_clock_data.obj (.data:lcdcClkDomain)
+                  80009c08    00000154     am335x_clock_data.obj (.data:mpuClkDomain)
+                  80009d5c    00000154     am335x_clock_data.obj (.data:perL3ClkDomain)
+                  80009eb0    00000154     am335x_clock_data.obj (.data:rtcClkDomain)
+                  8000a004    00000154     am335x_clock_data.obj (.data:wkupClkDomain)
+                  8000a158    000000f0     rtsv7A8_A_le_n_v3_eabi.lib : defs.obj (.data:_ftable)
+                  8000a248    000000d0                                : lowlev.obj (.data)
+                  8000a318    000000b0                                : signal.obj (.data:sigtable)
+                  8000a3c8    0000008c     am335x_clock_data.obj (.data:ModuleClockList)
+                  8000a454    00000080     am335x_clock_data.obj (.data:dpllCore)
+                  8000a4d4    00000080     am335x_clock_data.obj (.data:dpllDDR)
+                  8000a554    00000080     am335x_clock_data.obj (.data:dpllMpu)
+                  8000a5d4    00000080     am335x_clock_data.obj (.data:dpllPer)
+                  8000a654    00000004     rtsv7A8_A_le_n_v3_eabi.lib : errno.obj (.data)
+                  8000a658    00000080                                : xvalues.obj (.data)
+                  8000a6d8    00000058     am335x_clock_data.obj (.data:adcFclkClock)
+                  8000a730    00000058     am335x_clock_data.obj (.data:adcTscIclkClock)
+                  8000a788    00000058     am335x_clock_data.obj (.data:clk192MhzClock)
+                  8000a7e0    00000058     am335x_clock_data.obj (.data:clk24MhzGclkClock)
+                  8000a838    00000058     am335x_clock_data.obj (.data:clk32768Clock)
+                  8000a890    00000058     am335x_clock_data.obj (.data:clk32KhzClock)
+                  8000a8e8    00000058     am335x_clock_data.obj (.data:clk32KhzTimerClock)
+                  8000a940    00000058     am335x_clock_data.obj (.data:core100MClock)
+                  8000a998    00000058     am335x_clock_data.obj (.data:corePllM4Clock)
+                  8000a9f0    00000058     am335x_clock_data.obj (.data:corePllM5Clock)
+                  8000aa48    00000058     am335x_clock_data.obj (.data:cpsw125MhzGclkClock)
+                  8000aaa0    00000058     am335x_clock_data.obj (.data:cpsw125MhzIclkClock)
+                  8000aaf8    00000058     am335x_clock_data.obj (.data:cpsw250MhzFclkClock)
+                  8000ab50    00000058     am335x_clock_data.obj (.data:cpsw250MhzGclkClock)
+                  8000aba8    00000058     am335x_clock_data.obj (.data:cpsw50MhzFclkClock)
+                  8000ac00    00000058     am335x_clock_data.obj (.data:cpsw50MhzGclkClock)
+                  8000ac58    00000058     am335x_clock_data.obj (.data:cpsw5MhzFclkClock)
+                  8000acb0    00000058     am335x_clock_data.obj (.data:cpsw5MhzGclkClock)
+                  8000ad08    00000058     am335x_clock_data.obj (.data:cpswCptsFclkClock)
+                  8000ad60    00000058     am335x_clock_data.obj (.data:cpswCptsRftGclkClock)
+                  8000adb8    00000058     am335x_clock_data.obj (.data:cpswCptsRftMuxClock)
+                  8000ae10    00000058     am335x_clock_data.obj (.data:cpswMuxClock)
+                  8000ae68    00000058     am335x_clock_data.obj (.data:ddrPllM2Clock)
+                  8000aec0    00000058     am335x_clock_data.obj (.data:dpllCoreClock)
+                  8000af18    00000058     am335x_clock_data.obj (.data:dpllDdrClock)
+                  8000af70    00000058     am335x_clock_data.obj (.data:dpllMpuClock)
+                  8000afc8    00000058     am335x_clock_data.obj (.data:dpllPerClock)
+                  8000b020    00000058     am335x_clock_data.obj (.data:emifFclkClock)
+                  8000b078    00000058     am335x_clock_data.obj (.data:emifGclkClock)
+                  8000b0d0    00000058     am335x_clock_data.obj (.data:emifIclkClock)
+                  8000b128    00000058     am335x_clock_data.obj (.data:epwmss0IclkClock)
+                  8000b180    00000058     am335x_clock_data.obj (.data:gpio0GclkClock)
+                  8000b1d8    00000058     am335x_clock_data.obj (.data:gpio0IclkClock)
+                  8000b230    00000058     am335x_clock_data.obj (.data:gpio0OptClock)
+                  8000b288    00000058     am335x_clock_data.obj (.data:gpio1GclkClock)
+                  8000b2e0    00000058     am335x_clock_data.obj (.data:gpio1IclkClock)
+                  8000b338    00000058     am335x_clock_data.obj (.data:gpio1OptClock)
+                  8000b390    00000058     am335x_clock_data.obj (.data:gpio3GclkClock)
+                  8000b3e8    00000058     am335x_clock_data.obj (.data:gpio3IclkClock)
+                  8000b440    00000058     am335x_clock_data.obj (.data:gpio3OptClock)
+                  8000b498    00000058     am335x_clock_data.obj (.data:gpmcIclkClock)
+                  8000b4f0    00000058     am335x_clock_data.obj (.data:i2c0FclkClock)
+                  8000b548    00000058     am335x_clock_data.obj (.data:i2c0GclkClock)
+                  8000b5a0    00000058     am335x_clock_data.obj (.data:i2c0IclkClock)
+                  8000b5f8    00000058     am335x_clock_data.obj (.data:i2c1FclkClock)
+                  8000b650    00000058     am335x_clock_data.obj (.data:i2c1IclkClock)
+                  8000b6a8    00000058     am335x_clock_data.obj (.data:i2cGclkClock)
+                  8000b700    00000058     am335x_clock_data.obj (.data:l3GclkClock)
+                  8000b758    00000058     am335x_clock_data.obj (.data:l3IclkClock)
+                  8000b7b0    00000058     am335x_clock_data.obj (.data:l3l4IcEnableClock)
+                  8000b808    00000058     am335x_clock_data.obj (.data:l3sGclkClock)
+                  8000b860    00000058     am335x_clock_data.obj (.data:l4RtcGclkIclkClock)
+                  8000b8b8    00000058     am335x_clock_data.obj (.data:l4WkupAonGclkClock)
+                  8000b910    00000058     am335x_clock_data.obj (.data:l4WkupGclkClock)
+                  8000b968    00000058     am335x_clock_data.obj (.data:l4WkupIclkClock)
+                  8000b9c0    00000058     am335x_clock_data.obj (.data:l4fwGclkClock)
+                  8000ba18    00000058     am335x_clock_data.obj (.data:l4fwIclkClock)
+                  8000ba70    00000058     am335x_clock_data.obj (.data:l4lsGclkClock)
+                  8000bac8    00000058     am335x_clock_data.obj (.data:l4lsIclkClock)
+                  8000bb20    00000058     am335x_clock_data.obj (.data:lcdL3GclkClock)
+                  8000bb78    00000058     am335x_clock_data.obj (.data:lcdL4sGclkClock)
+                  8000bbd0    00000058     am335x_clock_data.obj (.data:lcdcFclkClock)
+                  8000bc28    00000058     am335x_clock_data.obj (.data:lcdcGclkClock)
+                  8000bc80    00000058     am335x_clock_data.obj (.data:lcdcL3IclkClock)
+                  8000bcd8    00000058     am335x_clock_data.obj (.data:lcdcL4ClkEnableClock)
+                  8000bd30    00000058     am335x_clock_data.obj (.data:lcdcL4IclkClock)
+                  8000bd88    00000058     am335x_clock_data.obj (.data:lcdcMuxClock)
+                  8000bde0    00000058     am335x_clock_data.obj (.data:mailbox0IclkClock)
+                  8000be38    00000058     am335x_clock_data.obj (.data:mcasp1FclkClock)
+                  8000be90    00000058     am335x_clock_data.obj (.data:mcasp1IclkClock)
+                  8000bee8    00000058     am335x_clock_data.obj (.data:mcaspGclkClock)
+                  8000bf40    00000058     am335x_clock_data.obj (.data:mpuIclkClock)
+                  8000bf98    00000058     am335x_clock_data.obj (.data:mpuPllM2Clock)
+                  8000bff0    00000058     am335x_clock_data.obj (.data:ocmcramIclkClock)
+                  8000c048    00000058     am335x_clock_data.obj (.data:perPllClkdcoldoClock)
+                  8000c0a0    00000058     am335x_clock_data.obj (.data:rtc32kGclkClock)
+                  8000c0f8    00000058     am335x_clock_data.obj (.data:rtcFclkClock)
+                  8000c150    00000058     am335x_clock_data.obj (.data:rtcIclkClock)
+                  8000c1a8    00000058     am335x_clock_data.obj (.data:spi0FclkClock)
+                  8000c200    00000058     am335x_clock_data.obj (.data:spi0IclkClock)
+                  8000c258    00000058     am335x_clock_data.obj (.data:spiGclkClock)
+                  8000c2b0    00000058     am335x_clock_data.obj (.data:sysClkInClock)
+                  8000c308    00000058     am335x_clock_data.obj (.data:sysclk1Clock)
+                  8000c360    00000058     am335x_clock_data.obj (.data:sysclk2Clock)
+                  8000c3b8    00000058     am335x_clock_data.obj (.data:timer1FclkClock)
+                  8000c410    00000058     am335x_clock_data.obj (.data:timer1GclkClock)
+                  8000c468    00000058     am335x_clock_data.obj (.data:timer1IclkClock)
+                  8000c4c0    00000058     am335x_clock_data.obj (.data:timer2ClkClock)
+                  8000c518    00000058     am335x_clock_data.obj (.data:timer2FclkClock)
+                  8000c570    00000058     am335x_clock_data.obj (.data:timer2GclkClock)
+                  8000c5c8    00000058     am335x_clock_data.obj (.data:timer2IclkClock)
+                  8000c620    00000058     am335x_clock_data.obj (.data:timer3ClkClock)
+                  8000c678    00000058     am335x_clock_data.obj (.data:timer3FclkClock)
+                  8000c6d0    00000058     am335x_clock_data.obj (.data:timer3GclkClock)
+                  8000c728    00000058     am335x_clock_data.obj (.data:timer3IclkClock)
+                  8000c780    00000058     am335x_clock_data.obj (.data:timer4ClkClock)
+                  8000c7d8    00000058     am335x_clock_data.obj (.data:timer4FclkClock)
+                  8000c830    00000058     am335x_clock_data.obj (.data:timer4GclkClock)
+                  8000c888    00000058     am335x_clock_data.obj (.data:timer4IclkClock)
+                  8000c8e0    00000058     am335x_clock_data.obj (.data:timer6ClkClock)
+                  8000c938    00000058     am335x_clock_data.obj (.data:timer6FclkClock)
+                  8000c990    00000058     am335x_clock_data.obj (.data:timer6GclkClock)
+                  8000c9e8    00000058     am335x_clock_data.obj (.data:timer6IclkClock)
+                  8000ca40    00000058     am335x_clock_data.obj (.data:timer7ClkClock)
+                  8000ca98    00000058     am335x_clock_data.obj (.data:timer7FclkClock)
+                  8000caf0    00000058     am335x_clock_data.obj (.data:timer7GclkClock)
+                  8000cb48    00000058     am335x_clock_data.obj (.data:timer7IclkClock)
+                  8000cba0    00000058     am335x_clock_data.obj (.data:tpccIclkClock)
+                  8000cbf8    00000058     am335x_clock_data.obj (.data:tptc0IclkClock)
+                  8000cc50    00000058     am335x_clock_data.obj (.data:tptc1IclkClock)
+                  8000cca8    00000058     am335x_clock_data.obj (.data:tptc2IclkClock)
+                  8000cd00    00000058     am335x_clock_data.obj (.data:uart0FclkClock)
+                  8000cd58    00000058     am335x_clock_data.obj (.data:uart0GclkClock)
+                  8000cdb0    00000058     am335x_clock_data.obj (.data:uart0IclkClock)
+                  8000ce08    00000058     am335x_clock_data.obj (.data:uartGclkClock)
+                  8000ce60    00000058     am335x_clock_data.obj (.data:usb0IclkClock)
+                  8000ceb8    00000058     am335x_clock_data.obj (.data:usbPllclkClock)
+                  8000cf10    00000058     am335x_clock_data.obj (.data:wdt1ClkClock)
+                  8000cf68    00000058     am335x_clock_data.obj (.data:wdt1FclkClock)
+                  8000cfc0    00000058     am335x_clock_data.obj (.data:wdt1GclkClock)
+                  8000d018    00000058     am335x_clock_data.obj (.data:wdt1IclkClock)
+                  8000d070    00000058     am335x_clock_data.obj (.data:wkupM3IclkClock)
+                  8000d0c8    00000050     am335x_clock_data.obj (.data:adcTscModClock)
+                  8000d118    00000050     am335x_clock_data.obj (.data:cpgmac0ModClock)
+                  8000d168    00000050     am335x_clock_data.obj (.data:emifModClock)
+                  8000d1b8    00000050     am335x_clock_data.obj (.data:epwmss0ModClock)
+                  8000d208    00000050     am335x_clock_data.obj (.data:gpio0ModClock)
+                  8000d258    00000050     am335x_clock_data.obj (.data:gpio1ModClock)
+                  8000d2a8    00000050     am335x_clock_data.obj (.data:gpio3ModClock)
+                  8000d2f8    00000050     am335x_clock_data.obj (.data:gpmcModClock)
+                  8000d348    00000050     am335x_clock_data.obj (.data:i2c0ModClock)
+                  8000d398    00000050     am335x_clock_data.obj (.data:i2c1ModClock)
+                  8000d3e8    00000050     am335x_clock_data.obj (.data:l3ModClock)
+                  8000d438    00000050     am335x_clock_data.obj (.data:l4WkupModClock)
+                  8000d488    00000050     am335x_clock_data.obj (.data:l4fwModClock)
+                  8000d4d8    00000050     am335x_clock_data.obj (.data:l4lsModClock)
+                  8000d528    00000050     am335x_clock_data.obj (.data:lcdcModClock)
+                  8000d578    00000050     am335x_clock_data.obj (.data:mailbox0ModClock)
+                  8000d5c8    00000050     am335x_clock_data.obj (.data:mcasp1ModClock)
+                  8000d618    00000050     am335x_clock_data.obj (.data:mpuModClock)
+                  8000d668    00000050     am335x_clock_data.obj (.data:ocmcramModClock)
+                  8000d6b8    00000050     am335x_clock_data.obj (.data:rtcModClock)
+                  8000d708    00000050     am335x_clock_data.obj (.data:spi0ModClock)
+                  8000d758    00000050     am335x_clock_data.obj (.data:timer1ModClock)
+                  8000d7a8    00000050     am335x_clock_data.obj (.data:timer2ModClock)
+                  8000d7f8    00000050     am335x_clock_data.obj (.data:timer3ModClock)
+                  8000d848    00000050     am335x_clock_data.obj (.data:timer4ModClock)
+                  8000d898    00000050     am335x_clock_data.obj (.data:timer6ModClock)
+                  8000d8e8    00000050     am335x_clock_data.obj (.data:timer7ModClock)
+                  8000d938    00000050     am335x_clock_data.obj (.data:tpccModClock)
+                  8000d988    00000050     am335x_clock_data.obj (.data:tptc0ModClock)
+                  8000d9d8    00000050     am335x_clock_data.obj (.data:tptc1ModClock)
+                  8000da28    00000050     am335x_clock_data.obj (.data:tptc2ModClock)
+                  8000da78    00000050     am335x_clock_data.obj (.data:uart0ModClock)
+                  8000dac8    00000050     am335x_clock_data.obj (.data:usbModClock)
+                  8000db18    00000050     am335x_clock_data.obj (.data:wdt1ModClock)
+                  8000db68    00000050     am335x_clock_data.obj (.data:wkupM3ModClock)
+                  8000dbb8    0000003c     am335x_clock_data.obj (.data:dpllCoreM4ClkDivider)
+                  8000dbf4    0000003c     am335x_clock_data.obj (.data:dpllCoreM5ClkDivider)
+                  8000dc30    0000003c     am335x_clock_data.obj (.data:dpllDdrM2ClkDivider)
+                  8000dc6c    0000003c     am335x_clock_data.obj (.data:dpllMpuM2ClkDivider)
+                  8000dca8    0000003c     am335x_clock_data.obj (.data:dpllPerClkdcoldoDivider)
+                  8000dce4    0000003c     am335x_clock_data.obj (.data:dpllPerM2ClkDivider)
+                  8000dd20    0000003c     main.obj (.data:enter)
+                  8000dd5c    00000035     main.obj (.data:welcome)
+                  8000dd91    00000003     --HOLE--
+                  8000dd94    00000030     am335x_clock_data.obj (.data:clockDomainList)
+                  8000ddc4    00000010     main.obj (.data)
+                  8000ddd4    00000010     rtsv7A8_A_le_n_v3_eabi.lib : defs.obj (.data)
+                  8000dde4    0000000c                                : memory.obj (.data)
+                  8000ddf0    00000008                                : _lock.obj (.data)
+                  8000ddf8    00000008                                : exit.obj (.data)
+                  8000de00    00000008                                : feraiseexcept.obj (.data)
+                  8000de08    00000004                                : fopen.obj (.data)
+                  8000de0c    00000004                                : stkdepth_vars.obj (.data)
+
+.const     0    800101d8    00000101     
+                  800101d8    00000101     rtsv7A8_A_le_n_v3_eabi.lib : ctype.obj (.const:.string:_ctypes_)
+
+
+LINKER GENERATED COPY TABLES
+
+__TI_cinit_table @ 80011828 records: 2, size/record: 8, table size: 16
+	.data: load addr=800102e8, load size=0000152b bytes, run addr=80009168, run size=00004ca8 bytes, compression=rle
+	.bss: load addr=80011820, load size=00000008 bytes, run addr=8000fe10, run size=000003c8 bytes, compression=zero_init
+
+
+LINKER GENERATED HANDLER TABLE
+
+__TI_handler_table @ 80011814 records: 3, size/record: 4, table size: 12
+	index: 0, handler: __TI_zero_init
+	index: 1, handler: __TI_decompress_rle24
+	index: 2, handler: __TI_decompress_none
+
+
+GLOBAL SYMBOLS: SORTED ALPHABETICALLY BY Name 
+
+address   name                                        
+-------   ----                                        
+80008914  C$$IO$$                                     
+80008d88  CPUAbortHandler                             
+8000914c  CPUIntStatus                                
+80008d6c  CPUSwitchToPrivilegedMode                   
+80008d74  CPUSwitchToUserMode                         
+80008dac  CPUfiqd                                     
+80008dbc  CPUfiqe                                     
+80008d8c  CPUirqd                                     
+80008d9c  CPUirqe                                     
+80007540  GPIO0ModuleClkConfig                        
+800075f8  GPIO1ModuleClkConfig                        
+80007530  GPIO1Pin23PinMuxSetup                       
+800076c8  GPIO1PinMuxSetup                            
+80007660  GPIO2ModuleClkConfig                        
+80004d50  GPIOAutoIdleModeControl                     
+80004e1c  GPIODebounceFuncControl                     
+80004e6c  GPIODebounceTimeConfig                      
+800044c8  GPIODirModeGet                              
+80004468  GPIODirModeSet                              
+80004dd8  GPIOGatingRatioConfigure                    
+80004d94  GPIOIdleModeConfigure                       
+80004a08  GPIOIntTypeGet                              
+80004674  GPIOIntTypeSet                              
+80004444  GPIOModuleDisable                           
+80004420  GPIOModuleEnable                            
+800043ec  GPIOModuleReset                             
+800045b0  GPIOMultiplePinsRead                        
+80004580  GPIOMultiplePinsWrite                       
+80004b4c  GPIOPinIntClear                             
+80004624  GPIOPinIntDisable                           
+800045d4  GPIOPinIntEnable                            
+80004ae8  GPIOPinIntStatus                            
+80004cf0  GPIOPinIntWakeUpDisable                     
+80004c90  GPIOPinIntWakeUpEnable                      
+80004558  GPIOPinRead                                 
+80004508  GPIOPinWrite                                
+80004b9c  GPIORawIntStatus                            
+80004e90  GPIORevisionInfoGet                         
+80004bf8  GPIOTriggerPinInt                           
+80004c6c  GPIOWakeupGlobalDisable                     
+80004c48  GPIOWakeupGlobalEnable                      
+800076e8  GpioPinMuxSetup                             
+800068e4  HOSTclock                                   
+8000687c  HOSTclose                                   
+80006814  HOSTgetenv                                  
+80006774  HOSTlseek                                   
+800066e8  HOSTopen                                    
+80006664  HOSTread                                    
+800065cc  HOSTrename                                  
+8000656c  HOSTtime                                    
+80006508  HOSTunlink                                  
+80006484  HOSTwrite                                   
+80006998  IntAINTCInit                                
+80006ad0  IntActiveIrqNumGet                          
+80006b68  IntCurrIrqPriorityGet                       
+80006cc0  IntDisable                                  
+80006cd8  IntEnable                                   
+80006b54  IntFuncClkAutoGateSet                       
+80006b40  IntFuncClkFreeRunSet                        
+80006abc  IntIfClkAutoGateSet                         
+80006aa8  IntIfClkFreeRunSet                          
+80006ca8  IntMasterFIQDisable                         
+80006c9c  IntMasterFIQEnable                          
+80006c90  IntMasterIRQDisable                         
+80006c84  IntMasterIRQEnable                          
+80006cb4  IntMasterStatusGet                          
+80006c48  IntPendingIrqMaskedStatusGet                
+80006a08  IntPrioritySet                              
+80006b78  IntPriorityThresholdGet                     
+80006b88  IntPriorityThresholdSet                     
+80006b04  IntProtectionDisable                        
+80006af4  IntProtectionEnable                         
+80006ba8  IntRawStatusGet                             
+80006954  IntRegister                                 
+80006c18  IntSoftwareIntClear                         
+80006be8  IntSoftwareIntSet                           
+80006ae0  IntSpurIrqFlagGet                           
+80006b2c  IntSyncClkAutoGateSet                       
+80006b18  IntSyncClkFreeRunSet                        
+80006a74  IntSystemDisable                            
+80006a40  IntSystemEnable                             
+80006978  IntUnRegister                               
+80005088  Isr32gpio2                                  
+8000509c  Isr33gpio2                                  
+800052f0  Isr72uart0                                  
+800054b4  Isr7NMI                                     
+800050b0  Isr96gpio0                                  
+800050c4  Isr97gpio0                                  
+800050d8  Isr98gpio1                                  
+800050ec  Isr99gpio1                                  
+8000a3c8  ModuleClockList                             
+UNDEFED   SHT$$INIT_ARRAY$$Base                       
+UNDEFED   SHT$$INIT_ARRAY$$Limit                      
+00000000  TSK_idle                                    
+800057b4  UART0AINTCConfigure                         
+800072f4  UART0ModuleClkConfig                        
+80001640  UARTAutoIdleModeControl                     
+800013ec  UARTAutoRTSAutoCTSControl                   
+80001b28  UARTAutobaudParityGet                       
+80001bc0  UARTAutobaudSpeedGet                        
+80001b74  UARTAutobaudWordLenGet                      
+80000388  UARTBreakCtl                                
+800010c8  UARTCharGet                                 
+80001070  UARTCharGetNonBlocking                      
+80001120  UARTCharGetTimeout                          
+800011b0  UARTCharPut                                 
+80001004  UARTCharPutNonBlocking                      
+80000fb0  UARTCharsAvail                              
+80001a98  UARTDMACounterResetControl                  
+800008c4  UARTDMADisable                              
+80000868  UARTDMAEnable                               
+800019b0  UARTDSRInterruptControl                     
+800002cc  UARTDivisorLatchDisable                     
+800002a8  UARTDivisorLatchEnable                      
+80000124  UARTDivisorLatchWrite                       
+80000060  UARTDivisorValCompute                       
+800009e8  UARTEnhanFuncBitValRestore                  
+80000988  UARTEnhanFuncEnable                         
+80001224  UARTFIFOCharGet                             
+80001204  UARTFIFOCharPut                             
+800004a4  UARTFIFOConfig                              
+80001398  UARTFIFOEnableStatusGet                     
+800008fc  UARTFIFORegisterWrite                       
+8000194c  UARTFIFOTrigLvlGranControl                  
+80001240  UARTFIFOWrite                               
+80001684  UARTFlowCtrlTrigLvlConfig                   
+800015b8  UARTIdleModeConfigure                       
+80000e94  UARTIntDisable                              
+80000db0  UARTIntEnable                               
+800012f8  UARTIntIdentityGet                          
+80001344  UARTIntPendingStatusGet                     
+800003cc  UARTLineCharacConfig                        
+800017f8  UARTLoopbackModeControl                     
+8000186c  UARTModemControlClear                       
+8000183c  UARTModemControlSet                         
+800018b8  UARTModemStatusChangeCheck                  
+8000189c  UARTModemStatusGet                          
+80001584  UARTModuleReset                             
+80001c6c  UARTModuleVersionNumberGet                  
+80000000  UARTOperatingModeSelect                     
+80000488  UARTParityModeGet                           
+80000444  UARTParityModeSet                           
+800072c0  UARTPinMuxSetup                             
+80001540  UARTPulseShapingControl                     
+80001a7c  UARTRXCTSDSRTransitionStatusGet             
+80001a38  UARTRXCTSDSRWakeUpConfigure                 
+80000368  UARTRegConfModeRestore                      
+800002f0  UARTRegConfigModeEnable                     
+800018d4  UARTResumeOperation                         
+800012ac  UARTRxErrorGet                              
+80001b10  UARTRxFIFOLevelGet                          
+80001c50  UARTScratchPadRegRead                       
+80001c0c  UARTScratchPadRegWrite                      
+80005800  UARTSend                                    
+800014dc  UARTSoftwareFlowCtrlOptSet                  
+80000f5c  UARTSpaceAvail                              
+80001478  UARTSpecialCharDetectControl                
+80000a4c  UARTSubConfigMSRSPRModeEn                   
+80000b24  UARTSubConfigTCRTLRModeEn                   
+80000bfc  UARTSubConfigXOFFModeEn                     
+80000cd4  UARTTCRTLRBitValRestore                     
+80001c88  UARTTxDMAThresholdControl                   
+80001ccc  UARTTxDMAThresholdValConfig                 
+800019f4  UARTTxEmptyIntControl                       
+80001adc  UARTTxFIFOFullStatusGet                     
+80001af8  UARTTxFIFOLevelGet                          
+800015fc  UARTWakeUpControl                           
+8000191c  UARTWakeUpEventsDisable                     
+800018ec  UARTWakeUpEventsEnable                      
+800016d4  UARTXON1XOFF1ValProgram                     
+80001704  UARTXON2XOFF2ValProgram                     
+80001734  UARTXONAnyFeatureControl                    
+80005708  UartInterruptEnable                         
+80008eb8  _Dclass                                     
+8000a658  _Denorm                                     
+80007c2c  _Dnorm                                      
+80007904  _Dscale                                     
+80008618  _Dunscale                                   
+8000a668  _Eps                                        
+8000a654  _Errno                                      
+8000de00  _Fenv                                       
+80008f48  _Feraise                                    
+8000a678  _Hugeval                                    
+8000a688  _Inf                                        
+8000a698  _Nan                                        
+8000a6b8  _Rteps                                      
+8000a6a8  _Snan                                       
+8000de04  _Tls_setup__Fenv                            
+8000a6c8  _Xbig                                       
+8000a6d0  _Zero                                       
+80010010  __CIOBUF_                                   
+8000fe10  __STACK_END                                 
+00002000  __STACK_SIZE                                
+00000008  __SYSMEM_SIZE                               
+80011828  __TI_CINIT_Base                             
+80011838  __TI_CINIT_Limit                            
+80011814  __TI_Handler_Table_Base                     
+80011820  __TI_Handler_Table_Limit                    
+8000852c  __TI_auto_init                              
+80006e74  __TI_cleanup                                
+8000ddf8  __TI_cleanup_ptr                            
+80008340  __TI_closefile                              
+80009118  __TI_decompress_none                        
+80009158  __TI_decompress_rle24                       
+80007ee4  __TI_doflush                                
+8000ddfc  __TI_dtors_ptr                              
+8000ddd4  __TI_ft_end                                 
+800030e4  __TI_printfi                                
+800080b4  __TI_rd_ok                                  
+8000891c  __TI_readmsg                                
+800102e8  __TI_static_base__                          
+80010130  __TI_tmpnams                                
+800088cc  __TI_writemsg                               
+80008014  __TI_wrt_ok                                 
+8000912c  __TI_zero_init                              
+8000812c  __aeabi_idiv                                
+80009160  __aeabi_idiv0                               
+8000812c  __aeabi_idivmod                             
+800086d0  __aeabi_memclr                              
+800086d0  __aeabi_memclr4                             
+800086d0  __aeabi_memclr8                             
+80007aac  __aeabi_memcpy                              
+80007aac  __aeabi_memcpy4                             
+80007aac  __aeabi_memcpy8                             
+800086d4  __aeabi_memset                              
+800086d4  __aeabi_memset4                             
+800086d4  __aeabi_memset8                             
+8000dde0  __aeabi_stderr                              
+8000ddd8  __aeabi_stdin                               
+8000dddc  __aeabi_stdout                              
+8000843c  __aeabi_uidiv                               
+8000843c  __aeabi_uidivmod                            
+80007008  __aeabi_uldivmod                            
+ffffffff  __binit__                                   
+ffffffff  __c_args__                                  
+8000de10  __stack                                     
+800090ac  _args_main                                  
+00000000  _argsize                                    
+80008c24  _c_int00                                    
+800101d8  _ctypes_                                    
+8000a158  _ftable                                     
+8000ddf0  _lock                                       
+8000907c  _nop                                        
+80009070  _register_lock                              
+80009064  _register_unlock                            
+800102e0  _sys_memory                                 
+8000ddf4  _unlock                                     
+8000a6d8  adcFclkClock                                
+8000a730  adcTscIclkClock                             
+8000d0c8  adcTscModClock                              
+8000635c  add_device                                  
+80008a9c  atoi                                        
+ffffffff  binit                                       
+80004f30  blinkLED                                    
+80005ee4  calloc                                      
+8000a788  clk192MhzClock                              
+80009168  clk24MhzClkDomain                           
+8000a7e0  clk24MhzGclkClock                           
+8000a838  clk32768Clock                               
+8000a890  clk32KhzClock                               
+8000a8e8  clk32KhzTimerClock                          
+80004224  clkdomainGateStatus                         
+8000dd94  clockDomainList                             
+800062cc  close                                       
+80003928  configADPLL                                 
+80008b20  copy_in                                     
+8000a940  core100MClock                               
+8000a998  corePllM4Clock                              
+8000a9f0  corePllM5Clock                              
+8000d118  cpgmac0ModClock                             
+800092bc  cpsw125MhzClkDomain                         
+8000aa48  cpsw125MhzGclkClock                         
+8000aaa0  cpsw125MhzIclkClock                         
+8000aaf8  cpsw250MhzFclkClock                         
+8000ab50  cpsw250MhzGclkClock                         
+8000aba8  cpsw50MhzFclkClock                          
+8000ac00  cpsw50MhzGclkClock                          
+8000ac58  cpsw5MhzFclkClock                           
+8000acb0  cpsw5MhzGclkClock                           
+8000ad08  cpswCptsFclkClock                           
+8000ad60  cpswCptsRftGclkClock                        
+8000adb8  cpswCptsRftMuxClock                         
+8000ae10  cpswMuxClock                                
+8000ae68  ddrPllM2Clock                               
+800040f4  deviceClockDisable                          
+800042fc  deviceClockEnable                           
+8000426c  deviceClockGateStatus                       
+80003d78  disableClockDomain                          
+80003c08  disableModule                               
+80003e58  disableModuleClock                          
+80004188  disableSelModuleClock                       
+8000a454  dpllCore                                    
+8000aec0  dpllCoreClock                               
+8000dbb8  dpllCoreM4ClkDivider                        
+8000dbf4  dpllCoreM5ClkDivider                        
+8000a4d4  dpllDDR                                     
+8000af18  dpllDdrClock                                
+8000dc30  dpllDdrM2ClkDivider                         
+8000a554  dpllMpu                                     
+8000af70  dpllMpuClock                                
+8000dc6c  dpllMpuM2ClkDivider                         
+8000a5d4  dpllPer                                     
+8000dca8  dpllPerClkdcoldoDivider                     
+8000afc8  dpllPerClock                                
+8000dce4  dpllPerM2ClkDivider                         
+8000b020  emifFclkClock                               
+8000b078  emifGclkClock                               
+8000b0d0  emifIclkClock                               
+8000d168  emifModClock                                
+800039e4  enableADPLLLowPowerMode                     
+80003b88  enableModule                                
+80003c54  enableModuleClock                           
+80004358  enableSelModuleClock                        
+8000dd20  enter                                       
+8000b128  epwmss0IclkClock                            
+8000d1b8  epwmss0ModClock                             
+800083ec  fclose                                      
+80008dcc  feraiseexcept                               
+80007f68  fflush                                      
+8000fe10  fnRAMVectors                                
+80006f0c  fopen                                       
+80008240  fputc                                       
+8000773c  fputs                                       
+80005ab8  free                                        
+80006ec0  freopen                                     
+80008f8c  frexp                                       
+80008780  fseek                                       
+8000404c  getADPLLIdleStatus                          
+80004098  getDividerClkGateStatus                     
+80004000  getGclockGateState                          
+80003fbc  getModuleState                              
+8000b180  gpio0GclkClock                              
+8000b1d8  gpio0IclkClock                              
+8000d208  gpio0ModClock                               
+8000b230  gpio0OptClock                               
+8000b288  gpio1GclkClock                              
+8000b2e0  gpio1IclkClock                              
+8000d258  gpio1ModClock                               
+8000b338  gpio1OptClock                               
+8000b390  gpio3GclkClock                              
+8000b3e8  gpio3IclkClock                              
+8000d2a8  gpio3ModClock                               
+8000b440  gpio3OptClock                               
+80004eec  gpioContextRestore                          
+80004ea8  gpioContextSave                             
+8000b498  gpmcIclkClock                               
+8000d2f8  gpmcModClock                                
+8000b4f0  i2c0FclkClock                               
+8000b548  i2c0GclkClock                               
+8000b5a0  i2c0IclkClock                               
+8000d348  i2c0ModClock                                
+8000b5f8  i2c1FclkClock                               
+8000b650  i2c1IclkClock                               
+8000d398  i2c1ModClock                                
+8000b6a8  i2cGclkClock                                
+80003a18  initClockDomain                             
+80005670  initUart                                    
+8000b700  l3GclkClock                                 
+8000b758  l3IclkClock                                 
+8000d3e8  l3ModClock                                  
+8000b7b0  l3l4IcEnableClock                           
+80009410  l3sClkDomain                                
+8000b808  l3sGclkClock                                
+8000b860  l4RtcGclkIclkClock                          
+80009564  l4WkupAonClkDomain                          
+8000b8b8  l4WkupAonGclkClock                          
+8000b910  l4WkupGclkClock                             
+8000b968  l4WkupIclkClock                             
+8000d438  l4WkupModClock                              
+800096b8  l4fwClkDomain                               
+8000b9c0  l4fwGclkClock                               
+8000ba18  l4fwIclkClock                               
+8000d488  l4fwModClock                                
+8000980c  l4hsClkDomain                               
+80009960  l4lsClkDomain                               
+8000ba70  l4lsGclkClock                               
+8000bac8  l4lsIclkClock                               
+8000d4d8  l4lsModClock                                
+8000bb20  lcdL3GclkClock                              
+8000bb78  lcdL4sGclkClock                             
+80009ab4  lcdcClkDomain                               
+8000bbd0  lcdcFclkClock                               
+8000bc28  lcdcGclkClock                               
+8000bc80  lcdcL3IclkClock                             
+8000bcd8  lcdcL4ClkEnableClock                        
+8000bd30  lcdcL4IclkClock                             
+8000d528  lcdcModClock                                
+8000bd88  lcdcMuxClock                                
+80008c98  ldexp                                       
+80006288  lseek                                       
+80008ba4  ltoa                                        
+8000bde0  mailbox0IclkClock                           
+8000d578  mailbox0ModClock                            
+800054b8  main                                        
+8000de0c  main_func_sp                                
+800059fc  malloc                                      
+8000be38  mcasp1FclkClock                             
+8000be90  mcasp1IclkClock                             
+8000d5c8  mcasp1ModClock                              
+8000bee8  mcaspGclkClock                              
+80005da4  memalign                                    
+80008fbc  memccpy                                     
+80008fe8  memchr                                      
+80007aac  memcpy                                      
+800086e0  memset                                      
+80005900  minit                                       
+80009c08  mpuClkDomain                                
+8000bf40  mpuIclkClock                                
+8000d618  mpuModClock                                 
+8000bf98  mpuPllM2Clock                               
+800057e4  myOutputFxn                                 
+8000ddc4  numRdBytesISR                               
+8000bff0  ocmcramIclkClock                            
+8000d668  ocmcramModClock                             
+80006170  open                                        
+80009d5c  perL3ClkDomain                              
+8000c048  perPllClkdcoldoClock                        
+80008830  printf                                      
+80008240  putc                                        
+8000832c  putchar                                     
+800078cc  puts                                        
+80008e24  raise                                       
+8000612c  read                                        
+80005c10  realloc                                     
+80006034  remove                                      
+800060e0  remove_device                               
+80006074  rename                                      
+8000c0a0  rtc32kGclkClock                             
+80009eb0  rtcClkDomain                                
+8000c0f8  rtcFclkClock                                
+8000c150  rtcIclkClock                                
+8000d6b8  rtcModClock                                 
+80003808  setLPBypassMode                             
+80007d8c  setvbuf                                     
+80008d08  signal                                      
+8000c1a8  spi0FclkClock                               
+8000c200  spi0IclkClock                               
+8000d708  spi0ModClock                                
+8000c258  spiGclkClock                                
+80009014  strchr                                      
+8000903c  strcmp                                      
+800090e8  strcpy                                      
+800090cc  strlen                                      
+80008e70  strncpy                                     
+8000c2b0  sysClkInClock                               
+8000c308  sysclk1Clock                                
+8000c360  sysclk2Clock                                
+80004f80  taskFxn                                     
+UNDEFED   ti_sysbios_BIOS_exit__E                     
+UNDEFED   ti_sysbios_BIOS_start__E                    
+48200000  ti_sysbios_family_arm_a8_intcps_Hwi_intc    
+UNDEFED   ti_sysbios_knl_Task_create                  
+UNDEFED   ti_sysbios_knl_Task_sleep__E                
+8000c3b8  timer1FclkClock                             
+8000c410  timer1GclkClock                             
+8000c468  timer1IclkClock                             
+8000d758  timer1ModClock                              
+8000c4c0  timer2ClkClock                              
+8000c518  timer2FclkClock                             
+8000c570  timer2GclkClock                             
+8000c5c8  timer2IclkClock                             
+8000d7a8  timer2ModClock                              
+8000c620  timer3ClkClock                              
+8000c678  timer3FclkClock                             
+8000c6d0  timer3GclkClock                             
+8000c728  timer3IclkClock                             
+8000d7f8  timer3ModClock                              
+8000c780  timer4ClkClock                              
+8000c7d8  timer4FclkClock                             
+8000c830  timer4GclkClock                             
+8000c888  timer4IclkClock                             
+8000d848  timer4ModClock                              
+8000c8e0  timer6ClkClock                              
+8000c938  timer6FclkClock                             
+8000c990  timer6GclkClock                             
+8000c9e8  timer6IclkClock                             
+8000d898  timer6ModClock                              
+8000ca40  timer7ClkClock                              
+8000ca98  timer7FclkClock                             
+8000caf0  timer7GclkClock                             
+8000cb48  timer7IclkClock                             
+8000d8e8  timer7ModClock                              
+8000cba0  tpccIclkClock                               
+8000d938  tpccModClock                                
+8000cbf8  tptc0IclkClock                              
+8000d988  tptc0ModClock                               
+8000cc50  tptc1IclkClock                              
+8000d9d8  tptc1ModClock                               
+8000cca8  tptc2IclkClock                              
+8000da28  tptc2ModClock                               
+8000ddd0  txComplFlag                                 
+8000ddc8  txFIFOEmptyFlag                             
+8000ddcc  txStrCount                                  
+8000cd00  uart0FclkClock                              
+8000cd58  uart0GclkClock                              
+8000cdb0  uart0IclkClock                              
+8000da78  uart0ModClock                               
+8000ce08  uartGclkClock                               
+80006034  unlink                                      
+8000ce60  usb0IclkClock                               
+8000dac8  usbModClock                                 
+8000ceb8  usbPllclkClock                              
+8000cf10  wdt1ClkClock                                
+8000cf68  wdt1FclkClock                               
+8000cfc0  wdt1GclkClock                               
+8000d018  wdt1IclkClock                               
+8000db18  wdt1ModClock                                
+8000dd5c  welcome                                     
+8000a004  wkupClkDomain                               
+8000d070  wkupM3IclkClock                             
+8000db68  wkupM3ModClock                              
+80005f3c  write                                       
+80009100  xdc_runtime_Error_init__E                   
+8000913c  xdc_runtime_Gate_enterSystem__E             
+UNDEFED   xdc_runtime_Startup_Module__state__V        
+00000001  xdc_runtime_Startup__EXECFXN__C             
+00000001  xdc_runtime_Startup__RESETFXN__C            
+UNDEFED   xdc_runtime_Startup_execImpl__C             
+80008a10  xdc_runtime_Startup_exec__E                 
+UNDEFED   xdc_runtime_Startup_firstFxns__C            
+UNDEFED   xdc_runtime_Startup_lastFxns__C             
+UNDEFED   xdc_runtime_Startup_reset__I                
+UNDEFED   xdc_runtime_System_Module_GateProxy_enter__E
+UNDEFED   xdc_runtime_System_Module__gateObj__C       
+UNDEFED   xdc_runtime_System_Module__state__V         
+UNDEFED   xdc_runtime_System_SupportProxy_exit__E     
+UNDEFED   xdc_runtime_System_SupportProxy_flush__E    
+UNDEFED   xdc_runtime_System_exitFxn__C               
+80009088  xdc_runtime_System_exit__E                  
+UNDEFED   xdc_runtime_System_flush__E                 
+UNDEFED   xdc_runtime_System_printf__E                
+80008f00  xdc_runtime_System_processAtExit__E         
+
+
+GLOBAL SYMBOLS: SORTED BY Symbol Address 
+
+address   name                                        
+-------   ----                                        
+00000000  TSK_idle                                    
+00000000  _argsize                                    
+00000001  xdc_runtime_Startup__EXECFXN__C             
+00000001  xdc_runtime_Startup__RESETFXN__C            
+00000008  __SYSMEM_SIZE                               
+00002000  __STACK_SIZE                                
+48200000  ti_sysbios_family_arm_a8_intcps_Hwi_intc    
+80000000  UARTOperatingModeSelect                     
+80000060  UARTDivisorValCompute                       
+80000124  UARTDivisorLatchWrite                       
+800002a8  UARTDivisorLatchEnable                      
+800002cc  UARTDivisorLatchDisable                     
+800002f0  UARTRegConfigModeEnable                     
+80000368  UARTRegConfModeRestore                      
+80000388  UARTBreakCtl                                
+800003cc  UARTLineCharacConfig                        
+80000444  UARTParityModeSet                           
+80000488  UARTParityModeGet                           
+800004a4  UARTFIFOConfig                              
+80000868  UARTDMAEnable                               
+800008c4  UARTDMADisable                              
+800008fc  UARTFIFORegisterWrite                       
+80000988  UARTEnhanFuncEnable                         
+800009e8  UARTEnhanFuncBitValRestore                  
+80000a4c  UARTSubConfigMSRSPRModeEn                   
+80000b24  UARTSubConfigTCRTLRModeEn                   
+80000bfc  UARTSubConfigXOFFModeEn                     
+80000cd4  UARTTCRTLRBitValRestore                     
+80000db0  UARTIntEnable                               
+80000e94  UARTIntDisable                              
+80000f5c  UARTSpaceAvail                              
+80000fb0  UARTCharsAvail                              
+80001004  UARTCharPutNonBlocking                      
+80001070  UARTCharGetNonBlocking                      
+800010c8  UARTCharGet                                 
+80001120  UARTCharGetTimeout                          
+800011b0  UARTCharPut                                 
+80001204  UARTFIFOCharPut                             
+80001224  UARTFIFOCharGet                             
+80001240  UARTFIFOWrite                               
+800012ac  UARTRxErrorGet                              
+800012f8  UARTIntIdentityGet                          
+80001344  UARTIntPendingStatusGet                     
+80001398  UARTFIFOEnableStatusGet                     
+800013ec  UARTAutoRTSAutoCTSControl                   
+80001478  UARTSpecialCharDetectControl                
+800014dc  UARTSoftwareFlowCtrlOptSet                  
+80001540  UARTPulseShapingControl                     
+80001584  UARTModuleReset                             
+800015b8  UARTIdleModeConfigure                       
+800015fc  UARTWakeUpControl                           
+80001640  UARTAutoIdleModeControl                     
+80001684  UARTFlowCtrlTrigLvlConfig                   
+800016d4  UARTXON1XOFF1ValProgram                     
+80001704  UARTXON2XOFF2ValProgram                     
+80001734  UARTXONAnyFeatureControl                    
+800017f8  UARTLoopbackModeControl                     
+8000183c  UARTModemControlSet                         
+8000186c  UARTModemControlClear                       
+8000189c  UARTModemStatusGet                          
+800018b8  UARTModemStatusChangeCheck                  
+800018d4  UARTResumeOperation                         
+800018ec  UARTWakeUpEventsEnable                      
+8000191c  UARTWakeUpEventsDisable                     
+8000194c  UARTFIFOTrigLvlGranControl                  
+800019b0  UARTDSRInterruptControl                     
+800019f4  UARTTxEmptyIntControl                       
+80001a38  UARTRXCTSDSRWakeUpConfigure                 
+80001a7c  UARTRXCTSDSRTransitionStatusGet             
+80001a98  UARTDMACounterResetControl                  
+80001adc  UARTTxFIFOFullStatusGet                     
+80001af8  UARTTxFIFOLevelGet                          
+80001b10  UARTRxFIFOLevelGet                          
+80001b28  UARTAutobaudParityGet                       
+80001b74  UARTAutobaudWordLenGet                      
+80001bc0  UARTAutobaudSpeedGet                        
+80001c0c  UARTScratchPadRegWrite                      
+80001c50  UARTScratchPadRegRead                       
+80001c6c  UARTModuleVersionNumberGet                  
+80001c88  UARTTxDMAThresholdControl                   
+80001ccc  UARTTxDMAThresholdValConfig                 
+800030e4  __TI_printfi                                
+80003808  setLPBypassMode                             
+80003928  configADPLL                                 
+800039e4  enableADPLLLowPowerMode                     
+80003a18  initClockDomain                             
+80003b88  enableModule                                
+80003c08  disableModule                               
+80003c54  enableModuleClock                           
+80003d78  disableClockDomain                          
+80003e58  disableModuleClock                          
+80003fbc  getModuleState                              
+80004000  getGclockGateState                          
+8000404c  getADPLLIdleStatus                          
+80004098  getDividerClkGateStatus                     
+800040f4  deviceClockDisable                          
+80004188  disableSelModuleClock                       
+80004224  clkdomainGateStatus                         
+8000426c  deviceClockGateStatus                       
+800042fc  deviceClockEnable                           
+80004358  enableSelModuleClock                        
+800043ec  GPIOModuleReset                             
+80004420  GPIOModuleEnable                            
+80004444  GPIOModuleDisable                           
+80004468  GPIODirModeSet                              
+800044c8  GPIODirModeGet                              
+80004508  GPIOPinWrite                                
+80004558  GPIOPinRead                                 
+80004580  GPIOMultiplePinsWrite                       
+800045b0  GPIOMultiplePinsRead                        
+800045d4  GPIOPinIntEnable                            
+80004624  GPIOPinIntDisable                           
+80004674  GPIOIntTypeSet                              
+80004a08  GPIOIntTypeGet                              
+80004ae8  GPIOPinIntStatus                            
+80004b4c  GPIOPinIntClear                             
+80004b9c  GPIORawIntStatus                            
+80004bf8  GPIOTriggerPinInt                           
+80004c48  GPIOWakeupGlobalEnable                      
+80004c6c  GPIOWakeupGlobalDisable                     
+80004c90  GPIOPinIntWakeUpEnable                      
+80004cf0  GPIOPinIntWakeUpDisable                     
+80004d50  GPIOAutoIdleModeControl                     
+80004d94  GPIOIdleModeConfigure                       
+80004dd8  GPIOGatingRatioConfigure                    
+80004e1c  GPIODebounceFuncControl                     
+80004e6c  GPIODebounceTimeConfig                      
+80004e90  GPIORevisionInfoGet                         
+80004ea8  gpioContextSave                             
+80004eec  gpioContextRestore                          
+80004f30  blinkLED                                    
+80004f80  taskFxn                                     
+80005088  Isr32gpio2                                  
+8000509c  Isr33gpio2                                  
+800050b0  Isr96gpio0                                  
+800050c4  Isr97gpio0                                  
+800050d8  Isr98gpio1                                  
+800050ec  Isr99gpio1                                  
+800052f0  Isr72uart0                                  
+800054b4  Isr7NMI                                     
+800054b8  main                                        
+80005670  initUart                                    
+80005708  UartInterruptEnable                         
+800057b4  UART0AINTCConfigure                         
+800057e4  myOutputFxn                                 
+80005800  UARTSend                                    
+80005900  minit                                       
+800059fc  malloc                                      
+80005ab8  free                                        
+80005c10  realloc                                     
+80005da4  memalign                                    
+80005ee4  calloc                                      
+80005f3c  write                                       
+80006034  remove                                      
+80006034  unlink                                      
+80006074  rename                                      
+800060e0  remove_device                               
+8000612c  read                                        
+80006170  open                                        
+80006288  lseek                                       
+800062cc  close                                       
+8000635c  add_device                                  
+80006484  HOSTwrite                                   
+80006508  HOSTunlink                                  
+8000656c  HOSTtime                                    
+800065cc  HOSTrename                                  
+80006664  HOSTread                                    
+800066e8  HOSTopen                                    
+80006774  HOSTlseek                                   
+80006814  HOSTgetenv                                  
+8000687c  HOSTclose                                   
+800068e4  HOSTclock                                   
+80006954  IntRegister                                 
+80006978  IntUnRegister                               
+80006998  IntAINTCInit                                
+80006a08  IntPrioritySet                              
+80006a40  IntSystemEnable                             
+80006a74  IntSystemDisable                            
+80006aa8  IntIfClkFreeRunSet                          
+80006abc  IntIfClkAutoGateSet                         
+80006ad0  IntActiveIrqNumGet                          
+80006ae0  IntSpurIrqFlagGet                           
+80006af4  IntProtectionEnable                         
+80006b04  IntProtectionDisable                        
+80006b18  IntSyncClkFreeRunSet                        
+80006b2c  IntSyncClkAutoGateSet                       
+80006b40  IntFuncClkFreeRunSet                        
+80006b54  IntFuncClkAutoGateSet                       
+80006b68  IntCurrIrqPriorityGet                       
+80006b78  IntPriorityThresholdGet                     
+80006b88  IntPriorityThresholdSet                     
+80006ba8  IntRawStatusGet                             
+80006be8  IntSoftwareIntSet                           
+80006c18  IntSoftwareIntClear                         
+80006c48  IntPendingIrqMaskedStatusGet                
+80006c84  IntMasterIRQEnable                          
+80006c90  IntMasterIRQDisable                         
+80006c9c  IntMasterFIQEnable                          
+80006ca8  IntMasterFIQDisable                         
+80006cb4  IntMasterStatusGet                          
+80006cc0  IntDisable                                  
+80006cd8  IntEnable                                   
+80006e74  __TI_cleanup                                
+80006ec0  freopen                                     
+80006f0c  fopen                                       
+80007008  __aeabi_uldivmod                            
+800072c0  UARTPinMuxSetup                             
+800072f4  UART0ModuleClkConfig                        
+80007530  GPIO1Pin23PinMuxSetup                       
+80007540  GPIO0ModuleClkConfig                        
+800075f8  GPIO1ModuleClkConfig                        
+80007660  GPIO2ModuleClkConfig                        
+800076c8  GPIO1PinMuxSetup                            
+800076e8  GpioPinMuxSetup                             
+8000773c  fputs                                       
+800078cc  puts                                        
+80007904  _Dscale                                     
+80007aac  __aeabi_memcpy                              
+80007aac  __aeabi_memcpy4                             
+80007aac  __aeabi_memcpy8                             
+80007aac  memcpy                                      
+80007c2c  _Dnorm                                      
+80007d8c  setvbuf                                     
+80007ee4  __TI_doflush                                
+80007f68  fflush                                      
+80008014  __TI_wrt_ok                                 
+800080b4  __TI_rd_ok                                  
+8000812c  __aeabi_idiv                                
+8000812c  __aeabi_idivmod                             
+80008240  fputc                                       
+80008240  putc                                        
+8000832c  putchar                                     
+80008340  __TI_closefile                              
+800083ec  fclose                                      
+8000843c  __aeabi_uidiv                               
+8000843c  __aeabi_uidivmod                            
+8000852c  __TI_auto_init                              
+80008618  _Dunscale                                   
+800086d0  __aeabi_memclr                              
+800086d0  __aeabi_memclr4                             
+800086d0  __aeabi_memclr8                             
+800086d4  __aeabi_memset                              
+800086d4  __aeabi_memset4                             
+800086d4  __aeabi_memset8                             
+800086e0  memset                                      
+80008780  fseek                                       
+80008830  printf                                      
+800088cc  __TI_writemsg                               
+80008914  C$$IO$$                                     
+8000891c  __TI_readmsg                                
+80008a10  xdc_runtime_Startup_exec__E                 
+80008a9c  atoi                                        
+80008b20  copy_in                                     
+80008ba4  ltoa                                        
+80008c24  _c_int00                                    
+80008c98  ldexp                                       
+80008d08  signal                                      
+80008d6c  CPUSwitchToPrivilegedMode                   
+80008d74  CPUSwitchToUserMode                         
+80008d88  CPUAbortHandler                             
+80008d8c  CPUirqd                                     
+80008d9c  CPUirqe                                     
+80008dac  CPUfiqd                                     
+80008dbc  CPUfiqe                                     
+80008dcc  feraiseexcept                               
+80008e24  raise                                       
+80008e70  strncpy                                     
+80008eb8  _Dclass                                     
+80008f00  xdc_runtime_System_processAtExit__E         
+80008f48  _Feraise                                    
+80008f8c  frexp                                       
+80008fbc  memccpy                                     
+80008fe8  memchr                                      
+80009014  strchr                                      
+8000903c  strcmp                                      
+80009064  _register_unlock                            
+80009070  _register_lock                              
+8000907c  _nop                                        
+80009088  xdc_runtime_System_exit__E                  
+800090ac  _args_main                                  
+800090cc  strlen                                      
+800090e8  strcpy                                      
+80009100  xdc_runtime_Error_init__E                   
+80009118  __TI_decompress_none                        
+8000912c  __TI_zero_init                              
+8000913c  xdc_runtime_Gate_enterSystem__E             
+8000914c  CPUIntStatus                                
+80009158  __TI_decompress_rle24                       
+80009160  __aeabi_idiv0                               
+80009168  clk24MhzClkDomain                           
+800092bc  cpsw125MhzClkDomain                         
+80009410  l3sClkDomain                                
+80009564  l4WkupAonClkDomain                          
+800096b8  l4fwClkDomain                               
+8000980c  l4hsClkDomain                               
+80009960  l4lsClkDomain                               
+80009ab4  lcdcClkDomain                               
+80009c08  mpuClkDomain                                
+80009d5c  perL3ClkDomain                              
+80009eb0  rtcClkDomain                                
+8000a004  wkupClkDomain                               
+8000a158  _ftable                                     
+8000a3c8  ModuleClockList                             
+8000a454  dpllCore                                    
+8000a4d4  dpllDDR                                     
+8000a554  dpllMpu                                     
+8000a5d4  dpllPer                                     
+8000a654  _Errno                                      
+8000a658  _Denorm                                     
+8000a668  _Eps                                        
+8000a678  _Hugeval                                    
+8000a688  _Inf                                        
+8000a698  _Nan                                        
+8000a6a8  _Snan                                       
+8000a6b8  _Rteps                                      
+8000a6c8  _Xbig                                       
+8000a6d0  _Zero                                       
+8000a6d8  adcFclkClock                                
+8000a730  adcTscIclkClock                             
+8000a788  clk192MhzClock                              
+8000a7e0  clk24MhzGclkClock                           
+8000a838  clk32768Clock                               
+8000a890  clk32KhzClock                               
+8000a8e8  clk32KhzTimerClock                          
+8000a940  core100MClock                               
+8000a998  corePllM4Clock                              
+8000a9f0  corePllM5Clock                              
+8000aa48  cpsw125MhzGclkClock                         
+8000aaa0  cpsw125MhzIclkClock                         
+8000aaf8  cpsw250MhzFclkClock                         
+8000ab50  cpsw250MhzGclkClock                         
+8000aba8  cpsw50MhzFclkClock                          
+8000ac00  cpsw50MhzGclkClock                          
+8000ac58  cpsw5MhzFclkClock                           
+8000acb0  cpsw5MhzGclkClock                           
+8000ad08  cpswCptsFclkClock                           
+8000ad60  cpswCptsRftGclkClock                        
+8000adb8  cpswCptsRftMuxClock                         
+8000ae10  cpswMuxClock                                
+8000ae68  ddrPllM2Clock                               
+8000aec0  dpllCoreClock                               
+8000af18  dpllDdrClock                                
+8000af70  dpllMpuClock                                
+8000afc8  dpllPerClock                                
+8000b020  emifFclkClock                               
+8000b078  emifGclkClock                               
+8000b0d0  emifIclkClock                               
+8000b128  epwmss0IclkClock                            
+8000b180  gpio0GclkClock                              
+8000b1d8  gpio0IclkClock                              
+8000b230  gpio0OptClock                               
+8000b288  gpio1GclkClock                              
+8000b2e0  gpio1IclkClock                              
+8000b338  gpio1OptClock                               
+8000b390  gpio3GclkClock                              
+8000b3e8  gpio3IclkClock                              
+8000b440  gpio3OptClock                               
+8000b498  gpmcIclkClock                               
+8000b4f0  i2c0FclkClock                               
+8000b548  i2c0GclkClock                               
+8000b5a0  i2c0IclkClock                               
+8000b5f8  i2c1FclkClock                               
+8000b650  i2c1IclkClock                               
+8000b6a8  i2cGclkClock                                
+8000b700  l3GclkClock                                 
+8000b758  l3IclkClock                                 
+8000b7b0  l3l4IcEnableClock                           
+8000b808  l3sGclkClock                                
+8000b860  l4RtcGclkIclkClock                          
+8000b8b8  l4WkupAonGclkClock                          
+8000b910  l4WkupGclkClock                             
+8000b968  l4WkupIclkClock                             
+8000b9c0  l4fwGclkClock                               
+8000ba18  l4fwIclkClock                               
+8000ba70  l4lsGclkClock                               
+8000bac8  l4lsIclkClock                               
+8000bb20  lcdL3GclkClock                              
+8000bb78  lcdL4sGclkClock                             
+8000bbd0  lcdcFclkClock                               
+8000bc28  lcdcGclkClock                               
+8000bc80  lcdcL3IclkClock                             
+8000bcd8  lcdcL4ClkEnableClock                        
+8000bd30  lcdcL4IclkClock                             
+8000bd88  lcdcMuxClock                                
+8000bde0  mailbox0IclkClock                           
+8000be38  mcasp1FclkClock                             
+8000be90  mcasp1IclkClock                             
+8000bee8  mcaspGclkClock                              
+8000bf40  mpuIclkClock                                
+8000bf98  mpuPllM2Clock                               
+8000bff0  ocmcramIclkClock                            
+8000c048  perPllClkdcoldoClock                        
+8000c0a0  rtc32kGclkClock                             
+8000c0f8  rtcFclkClock                                
+8000c150  rtcIclkClock                                
+8000c1a8  spi0FclkClock                               
+8000c200  spi0IclkClock                               
+8000c258  spiGclkClock                                
+8000c2b0  sysClkInClock                               
+8000c308  sysclk1Clock                                
+8000c360  sysclk2Clock                                
+8000c3b8  timer1FclkClock                             
+8000c410  timer1GclkClock                             
+8000c468  timer1IclkClock                             
+8000c4c0  timer2ClkClock                              
+8000c518  timer2FclkClock                             
+8000c570  timer2GclkClock                             
+8000c5c8  timer2IclkClock                             
+8000c620  timer3ClkClock                              
+8000c678  timer3FclkClock                             
+8000c6d0  timer3GclkClock                             
+8000c728  timer3IclkClock                             
+8000c780  timer4ClkClock                              
+8000c7d8  timer4FclkClock                             
+8000c830  timer4GclkClock                             
+8000c888  timer4IclkClock                             
+8000c8e0  timer6ClkClock                              
+8000c938  timer6FclkClock                             
+8000c990  timer6GclkClock                             
+8000c9e8  timer6IclkClock                             
+8000ca40  timer7ClkClock                              
+8000ca98  timer7FclkClock                             
+8000caf0  timer7GclkClock                             
+8000cb48  timer7IclkClock                             
+8000cba0  tpccIclkClock                               
+8000cbf8  tptc0IclkClock                              
+8000cc50  tptc1IclkClock                              
+8000cca8  tptc2IclkClock                              
+8000cd00  uart0FclkClock                              
+8000cd58  uart0GclkClock                              
+8000cdb0  uart0IclkClock                              
+8000ce08  uartGclkClock                               
+8000ce60  usb0IclkClock                               
+8000ceb8  usbPllclkClock                              
+8000cf10  wdt1ClkClock                                
+8000cf68  wdt1FclkClock                               
+8000cfc0  wdt1GclkClock                               
+8000d018  wdt1IclkClock                               
+8000d070  wkupM3IclkClock                             
+8000d0c8  adcTscModClock                              
+8000d118  cpgmac0ModClock                             
+8000d168  emifModClock                                
+8000d1b8  epwmss0ModClock                             
+8000d208  gpio0ModClock                               
+8000d258  gpio1ModClock                               
+8000d2a8  gpio3ModClock                               
+8000d2f8  gpmcModClock                                
+8000d348  i2c0ModClock                                
+8000d398  i2c1ModClock                                
+8000d3e8  l3ModClock                                  
+8000d438  l4WkupModClock                              
+8000d488  l4fwModClock                                
+8000d4d8  l4lsModClock                                
+8000d528  lcdcModClock                                
+8000d578  mailbox0ModClock                            
+8000d5c8  mcasp1ModClock                              
+8000d618  mpuModClock                                 
+8000d668  ocmcramModClock                             
+8000d6b8  rtcModClock                                 
+8000d708  spi0ModClock                                
+8000d758  timer1ModClock                              
+8000d7a8  timer2ModClock                              
+8000d7f8  timer3ModClock                              
+8000d848  timer4ModClock                              
+8000d898  timer6ModClock                              
+8000d8e8  timer7ModClock                              
+8000d938  tpccModClock                                
+8000d988  tptc0ModClock                               
+8000d9d8  tptc1ModClock                               
+8000da28  tptc2ModClock                               
+8000da78  uart0ModClock                               
+8000dac8  usbModClock                                 
+8000db18  wdt1ModClock                                
+8000db68  wkupM3ModClock                              
+8000dbb8  dpllCoreM4ClkDivider                        
+8000dbf4  dpllCoreM5ClkDivider                        
+8000dc30  dpllDdrM2ClkDivider                         
+8000dc6c  dpllMpuM2ClkDivider                         
+8000dca8  dpllPerClkdcoldoDivider                     
+8000dce4  dpllPerM2ClkDivider                         
+8000dd20  enter                                       
+8000dd5c  welcome                                     
+8000dd94  clockDomainList                             
+8000ddc4  numRdBytesISR                               
+8000ddc8  txFIFOEmptyFlag                             
+8000ddcc  txStrCount                                  
+8000ddd0  txComplFlag                                 
+8000ddd4  __TI_ft_end                                 
+8000ddd8  __aeabi_stdin                               
+8000dddc  __aeabi_stdout                              
+8000dde0  __aeabi_stderr                              
+8000ddf0  _lock                                       
+8000ddf4  _unlock                                     
+8000ddf8  __TI_cleanup_ptr                            
+8000ddfc  __TI_dtors_ptr                              
+8000de00  _Fenv                                       
+8000de04  _Tls_setup__Fenv                            
+8000de0c  main_func_sp                                
+8000de10  __stack                                     
+8000fe10  __STACK_END                                 
+8000fe10  fnRAMVectors                                
+80010010  __CIOBUF_                                   
+80010130  __TI_tmpnams                                
+800101d8  _ctypes_                                    
+800102e0  _sys_memory                                 
+800102e8  __TI_static_base__                          
+80011814  __TI_Handler_Table_Base                     
+80011820  __TI_Handler_Table_Limit                    
+80011828  __TI_CINIT_Base                             
+80011838  __TI_CINIT_Limit                            
+ffffffff  __binit__                                   
+ffffffff  __c_args__                                  
+ffffffff  binit                                       
+UNDEFED   SHT$$INIT_ARRAY$$Base                       
+UNDEFED   SHT$$INIT_ARRAY$$Limit                      
+UNDEFED   ti_sysbios_BIOS_exit__E                     
+UNDEFED   ti_sysbios_BIOS_start__E                    
+UNDEFED   ti_sysbios_knl_Task_create                  
+UNDEFED   ti_sysbios_knl_Task_sleep__E                
+UNDEFED   xdc_runtime_Startup_Module__state__V        
+UNDEFED   xdc_runtime_Startup_execImpl__C             
+UNDEFED   xdc_runtime_Startup_firstFxns__C            
+UNDEFED   xdc_runtime_Startup_lastFxns__C             
+UNDEFED   xdc_runtime_Startup_reset__I                
+UNDEFED   xdc_runtime_System_Module_GateProxy_enter__E
+UNDEFED   xdc_runtime_System_Module__gateObj__C       
+UNDEFED   xdc_runtime_System_Module__state__V         
+UNDEFED   xdc_runtime_System_SupportProxy_exit__E     
+UNDEFED   xdc_runtime_System_SupportProxy_flush__E    
+UNDEFED   xdc_runtime_System_exitFxn__C               
+UNDEFED   xdc_runtime_System_flush__E                 
+UNDEFED   xdc_runtime_System_printf__E                
+
+[532 symbols]
